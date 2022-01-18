@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="posts-div" *ngIf="dailyImages && dailyImages.length>0">
+        <div class="post" *ngFor="let post of dailyImages">
+            <a [routerLink]="['/daypost', post.date]">
+                <div class="img-container" style="position: relative;">
+                    <img [src]="post.url" />
+                </div>
+                <div class="text-div title-div">
+                    <div><p>{{post.title}}</p></div>
+                    <div class="div-fecha"><i>{{formatDate(post.date)}}</i></div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <ngx-skeleton-loader *ngIf="!dailyImages || dailyImages.length == 0" count="3" style="width: 100%;" appearance="circle" [theme]="{ 
+        'border-radius': '0px',
+        height: '40vh',
+        width: '30%',
+        'background-color': '#8C8C8C'
+    }"></ngx-skeleton-loader>
+    <ngx-skeleton-loader *ngIf="!dailyImages || dailyImages.length == 0" count="3" style="width: 100%;" appearance="circle" [theme]="{ 
+        'border-radius': '0px',
+        height: '40vh',
+        width: '30%',
+        'background-color': '#8C8C8C'
+    }"></ngx-skeleton-loader>
+</div>

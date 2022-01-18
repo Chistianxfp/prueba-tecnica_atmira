@@ -10,6 +10,7 @@ export class AppComponent {
   title = 'Prueba Atmira';
 
   constructor(){
+    //Ponemos el formato de fecha en castellano
     moment.locale('es');
   }
 }

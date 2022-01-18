@@ -1,1 +1,60 @@
-<p>day-post works!</p>
+<div class="container">
+    <div class="image-div" *ngIf="dayPost">
+        <div class="title">
+            <div class="btn-back-div">
+                <a mat-flat-button [routerLink]="['/']"><mat-icon>keyboard_return</mat-icon> Volver</a>
+            </div>
+            
+            <div>
+                <h1>{{dayPost.title}}</h1>
+                <span>{{formatDate(dayPost.date)}}</span>
+            </div>
+        </div>
+        <figure>
+            <img [src]="dayPost.hdurl">
+            <figcaption>
+                {{dayPost.explanation}}
+            </figcaption>
+        </figure>
+    </div>
+    <div class="image-div skeleton" *ngIf="!dayPost">
+        <div class="title">
+            <div class="btn-back-div">
+                <a mat-flat-button [routerLink]="['/']"><mat-icon>keyboard_return</mat-icon> Volver</a>
+            </div>
+
+            <div>
+                <ngx-skeleton-loader appearance="line" [theme]="{ 
+                    'border-radius': '5px',
+                    width: '80%',
+                    height: '50px'
+                }"></ngx-skeleton-loader><br>
+                <ngx-skeleton-loader appearance="line" [theme]="{ 
+                    'border-radius': '5px',
+                    width: '20%',
+                    height: '20px'
+                }"></ngx-skeleton-loader>
+            </div>
+        </div>
+
+        <div>
+            <ngx-skeleton-loader appearance="line" [theme]="{ 
+                'border-radius': '0px',
+                width: '99%',
+                height: '50vh'
+            }"></ngx-skeleton-loader>
+        </div>
+
+        <div class="explanation skeleton">
+            <ngx-skeleton-loader appearance="line" [theme]="{
+                width: '70%'
+            }"></ngx-skeleton-loader><br>
+            <ngx-skeleton-loader appearance="line" [theme]="{
+                width: '50%'
+            }"></ngx-skeleton-loader>
+            <ngx-skeleton-loader appearance="line" [theme]="{
+                width: '60%'
+            }"></ngx-skeleton-loader><br>
+        </div>
+    </div>
+</div>
